@@ -1,0 +1,8 @@
+env/*
+.vscode
+Ansible/hosts.ini
+Terraform/.env
+Terraform/.terraform.lock.hcl
+Terraform/terraform.tfstate
+Terraform/terraform.tfstate.backup
+*/.terraform/*

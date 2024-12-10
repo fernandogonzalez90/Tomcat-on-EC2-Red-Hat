@@ -1,0 +1,25 @@
+- name: Instalar y configurar Tomcat en RedHat
+  hosts: redhat_tomcat
+  become: true
+
+  tasks:
+    - name: Update
+      shell: "yum update -y"
+      become: true
+
+    - name: Instalar dependencias
+      yum:
+        name:
+          - python3
+          - python3-pip
+          - java-11-openjdk
+          - wget
+          - tomcat
+        state: present
+
+    - name: Iniciar Tomcat como servicio
+      shell: |
+        systemctl daemon-reload
+        systemctl enable tomcat
+        systemctl start tomcat
+      become: true
